@@ -1,0 +1,40 @@
+#include <iostream>
+#include <clocale>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    double a, b, c;
+    cin >> a >> b >> c;
+
+    if (a == 0) {
+        if (b == 0) {
+            if (c == 0) {
+                cout << "Бесконечно много решений" << endl;
+            } else {
+                cout << "Нет корней" << endl;
+            }
+        } else {
+            double x = -c / b;
+            cout << "x = " << x << endl;
+        }
+    } else {
+        double D = b * b - 4 * a * c;
+
+        if (D < 0) {
+            cout << "Нет действительных корней" << endl;
+        } else if (D == 0) {
+            double x = -b / (2 * a);
+            cout << "Один корень: " << x << endl;
+        } else {
+            double x1 = (-b - sqrt(D)) / (2 * a);
+            double x2 = (-b + sqrt(D)) / (2 * a);
+            cout << "Два корня: " << x1 << " " << x2 << endl;
+        }
+    }
+
+    return 0;
+}
